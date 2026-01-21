@@ -3,7 +3,7 @@
 Welcome to your first weekly team activity. Team Activities are guided (tutorial like) study sessions with your team. They are designed to help you learn the material in a more interactive way. 
 
 ## Grading
-Grades for team activities will be based on attendance and notes. You must attend, and as a team you need to generate notes that we can confirm your work. Ideally, you upload the notes as a PDF to the team meeting after you build them out. 
+Grades for team activities will be based on attendance and notes. You must attend, and as a team you need to generate notes that we can confirm your work. Ideally, you upload the notes as a PDF to Canvas after you build them out. 
 
 > [!TIP] 
 > Good notes become a study guide for you and your team! Make sure they include everything you need to help better understand the weekly material. 
@@ -22,7 +22,7 @@ This team activity is designed to help you understand the following concepts:
 
 ## Four Pillars of Object Oriented Programming
 
-A common question in technical interviews are "describe the four pillars of Object Oriented Programming". These four pillars are the foundation of Object Oriented Programming, and help frame they "why" of some of the choices. 
+A common question in technical interviews are "describe the four pillars of Object Oriented Programming". These four pillars are the foundation of Object Oriented Programming, and help frame the "why" of some of the choices. 
 
 They are:
 - Encapsulation
@@ -31,9 +31,8 @@ They are:
 - Abstraction
 
 > [!CAUTION]
-> Team activities should be 'capped' at two hours. If you hit the two hour mark and not done, 
-> that is 100% alright! This particular activity may be one of the ones that way, as different
-> teams work at different paces - so we have extra work at the end for the quicker teams. 
+> Unless specified otherwise, team activities should be 'capped' by the length of the CS 5005 lab meeting. If you take longer and are not done, 
+> that is 100% alright! This particular activity is longer than others, so you can complete the notes by the next CS 5005 lab meeting.  
 
 ### 👉🏽 Discussion
 Take a moment to define each pilar as a team and discuss them. Define them in your notes. If the term is new to you, take time to look it up, and share what you find. We encourage you to put any resources you used in the notes.
@@ -41,7 +40,7 @@ Take a moment to define each pilar as a team and discuss them. Define them in yo
 ### Biology?
 Another way to look at OOP is via biology. In biology, we have the concept of a "class" (species), and an "object" (individual). However, in biology, we also have the concept of "inheritance" (genetics), "polymorphism" (different species), and "abstraction" (the idea of a species). These all sound nice in nature, but believe it or not, the concept of OOP came from a computer scientist who was also a microbiologist (much like the ALIGN students, he didn't start in computer science). [Alan Kay], the creator of OOP, was inspired by the biological world to create a new way of programming.
 
-He emphasis that the main concept in OOP is not the objects, but the idea that messages are passed between the objects. This is a key concept in OOP, and one that is often overlooked. If you think from this biology perspective, cells are generalized objects that can be specialized into specific organs and tasks. However, what is more important is the messages passed between the cells, and the rest of the system assumes they do the job they are supposed to do. 
+Alan Kay emphasized that the main concept in OOP is not the objects, but the idea that messages are passed between the objects. This is a key concept in OOP, and one that is often overlooked. If you think from this biology perspective, cells are generalized objects that can be specialized into specific organs and tasks. However, what is more important is the messages passed between the cells, and the rest of the system assumes they do the job they are supposed to do. 
 
 This makes objects "nouns" and methods "verbs" - with the emphasis on the verb. Sure you have an object that contains information, but the verbs tell it do something with that information. 
 
@@ -132,15 +131,15 @@ public void drawBoard() {
 ```
 
 ### But is it really bad?
-Yes and no - Yes if you don't properly override draw(point) with only one point. It is a fine design if you make sure both versions of draw are implemented.  However, a single center doesn't make sense if we are talking about an some shapes like an oval, so what happens there?
+Yes and no - Yes if you don't properly override draw(point) with only one point. It is a fine design if you make sure both versions of draw are implemented.  However, a single center doesn't make sense if we are talking about some shapes like an oval, so what happens there?
 
-Needless to say, as we start talking about design there are multiple choices that come into play, often more dependant on our **data and domain**, than just how we code the application. 
+Needless to say, as we start talking about design there are multiple choices that come into play, often more dependent on our **data and domain**, than just how we code the application. 
 
 
 In the above case, it may make sense for draw() to actually exist in the GameBoard, and the shape to be passed in as the parameter. This way, the GameBoard can decide how to draw the shape, and the shape can focus on what it is and providing the information it needs
 
 ### Common Confusion
-Why doesn't Circle violate the principle? It has a getRadius() method, and the Shape class doesn't have a getRadius() method. It is easy to get it "backwards". Every Circle can be a shape, but not every Shape can be a Circle. If we have a method that specifically needs a radius, then we should be using a Circle, not Shape as the parameter. For example:
+Why doesn't Circle violate the principle? It has a getRadius() method, and the Shape class doesn't have a getRadius() method. It is easy to be mistaken by getting it "backwards". Every Circle can be a shape, but not every Shape can be a Circle. If we have a method that specifically needs a radius, then we should be using a Circle, not Shape as the parameter. For example:
 
 ```java
 public void circleOnly(Circle circle) {
@@ -152,7 +151,7 @@ public void circleOnly(Circle circle) {
 That is a lot! Go ahead and discuss. How does this change your perspective on inheritance?
 
 > [!TIP] 
-> A major take away, when designing code your parameter should be the 
+> A major takeaway: when designing code, your parameter should be the 
 > the most "generic" (highest parent in the tree) type that you can use. 
 > This allows you to pass in anything that inherits the object, and
 > allows the object to provide specific information related to it.
@@ -215,7 +214,7 @@ Take time to explain the concepts to each other. What other questions come up as
 
 ## :computer: Refactoring 
 
-Let's practice! One of the more difficult but often best ways to learn design is by refracting (rewriting) code. This is often best if you practice with your own code, as you seek to improve it in the future. However, it is good (and sadly common in industry) for someone to have to refractor someone else's code. 
+Let's practice! One of the more difficult, but often best, ways to learn design is by refracting (rewriting) code. This is often best if you practice with your own code, as you seek to improve it in the future. However, it is good (and sadly common in industry) for someone to have to refactor someone else's code. 
 
 With this team activity, there is a series of classes trying to represent a Menagerie of Animal Companions. The code is a bit of a mess, and it is up to you to refactor it. (You can find the code in the [src/](src/) folder). 
 
@@ -223,7 +222,7 @@ With this team activity, there is a series of classes trying to represent a Mena
 > If you are opening this 'project' after downloading the git repository, you only want to open up the specific folder Module 03, not the whole repository. 
 
 
-For the next part of the team activity, we will step through some key points, but how you refractor it may depend a bit on the group discussion! Don't worry, there isn't a single answer, so while we present a possible solution at the end - your solution may be different. That is fine.  
+For the next part of the team activity, we will step through some key points, but how you refactor it may depend a bit on the group discussion! Don't worry, there isn't a single answer, so while we present a possible solution at the end - your solution may be different. That is fine.  
 
 ### 👉🏽 Discussion 
 Go through the design, and highlight at least three things you can see to change just based on the code.
@@ -232,7 +231,7 @@ Now with this in mind, it is good to think about the domain of the problem. The 
 
 With that in mind, does the current inheritance structure make sense? Why or why not?
 
-### :question: Question 1: Ask - What are needed Nouns (objects)
+### ❓ Question 1: Ask - What are needed Nouns (objects)
 
 Take a moment based on the short client description to identify the nouns (objects) that are needed. While the programmer / examples focuses heavily on the taxonomy of animals, and each object being a subclass of another, it may not be the best way to represent the data.
 
@@ -266,7 +265,7 @@ classDiagram
 > ```
 >````
 
-### :question: Question 2: Define - What are the "is-a" and "has-a" relationships?
+### ❓ Question 2: Define - What are the "is-a" and "has-a" relationships?
 
 Now that you have the objects, start to define the relationships between the objects.
 Which objects have a "is-a" relationship, and which objects have a "has-a" relationship?
@@ -306,7 +305,7 @@ Discuss and add the changes to the UML.
 > difference is more organization dependant, and best to follow company guidelines.
 
 
-### :question: Question 3: Attributes of Nouns
+### ❓ Question 3: Attributes of Nouns
 Now that you have the relationships, what are some of the "attributes" or "properties" of each object? These are items that *belong* to the object (attributes). Often these should 
 be private, and accessed via getters and setters. (Make sure to discuss why, if you are unsure about this!)
 
@@ -314,11 +313,11 @@ Discuss and add the attributes to the UML. For the many relationships you can ju
 or make it a List of the type, which is List<Animal> for example. 
 
 > [!WARNING]
-> What is a List?!?  It is very similar to the List you covered in python, and in the
+> What is a List?!?  It is very similar to the List you covered in Python, and in the
 > next module we will cover it in detail. For now, it is a container that can hold
 > multiple objects of the same type in order. You can see the example both in the
 > provided (poorly written) Menagerie.java and Animal.java. Two major differences
-> than how you use one in python is that you have to specify the types that are
+> compared to how you use a List in Python is that in Java, you have to specify the types that are
 > to be stored in the list, and that you *have* to use methods to access (no slice operators `[:]` in Java for Lists).
 
 > [!TIP]
@@ -352,7 +351,7 @@ or make it a List of the type, which is List<Animal> for example.
 >     }
 > ```
 
-### :question: Question 4: Actions/Verbs of Objects (Methods)
+### ❓ Question 4: Actions/Verbs of Objects (Methods)
 
 Now think of the various actions you would want each object to take. These are the methods that are associated with the object, and another way to look at them is the "verbs" in the system. They are active and do something. 
 
@@ -406,7 +405,7 @@ After discussing, add them to the UML diagram.
 > toString() is inherited from the Object class, it is often best to
 > override it in your classes to provide a more meaningful output.
 > The default output is the class name and the memory address of the object,
-> which can be useful, not not as much as your custom output.
+> which can be useful in limited scenarios, but not as much as your custom output.
 
 ### Test Driven Development
 
@@ -421,11 +420,11 @@ That is often a great mistake. Instead, you should design (UML), then write a *S
 
 
 > [!TIP]
-> Often, a test may only pass a *single* aspect of a more complex method. For example, if you have a method method that needs to return an uppercase 
+> Often, a test may only pass a *single* aspect of a more complex method. For example, if you have a method that needs to return an uppercase 
 > string or "EMPTY" if there isn't a string. You would
 > * Write a test for returning an upper case string
 > * Write the method to return an upper case string
-> * Write a test to return EMPTY is the string is empty
+> * Write a test to return EMPTY if the string is empty
 > * **update/refactor** the method to handle both EMPTY and the upper case string - so both tests pass. 
 
 
@@ -445,11 +444,11 @@ As part of **every** team activity, we will ask you to work on a Java Practice p
 * [Coding Bat - Java](https://codingbat.com/java)
 * [Hacker Rank - Java(Basic)](https://www.hackerrank.com/domains/java?filters%5Bskills%5D%5B%5D=Java%20%28Basic%29)
 
-Please share your solutions as `.java` files into the team meeting chat (it is easier than for us to give feedback).
+Please share your solutions as`.java` files into the private Teams channel for your group (it is easier than for us to give feedback).
 
 ## 👉🏽 Final Discussion  (Last 15 minutes)
 
-Before you end, take a moment to review **A** possible solution to the main activity (meaning your solution may be fine, and there are more than one solutions). You can find the solution in the [Solution](Solution) folder.
+Before you end, take a moment to review **A** possible solution to the main activity (meaning your solution may be fine as there is more than one solution). You can find the solution in the [Solution](Solution) folder.
 
 ### Factory??
 You will notice we created files with 'Factory' in the name. This is a design pattern you will come across in the future. It is a way to create objects without having to know the specific class of the object. This is often used when you have a class that is a parent of many classes, and you want to create a specific child class. It is also good for when you are unsure of 
