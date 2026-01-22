@@ -444,7 +444,7 @@ As part of **every** team activity, we will ask you to work on a Java Practice p
 * [Coding Bat - Java](https://codingbat.com/java)
 * [Hacker Rank - Java(Basic)](https://www.hackerrank.com/domains/java?filters%5Bskills%5D%5B%5D=Java%20%28Basic%29)
 
-Please create a GitHub repository named `cs5004-team1-activities` (or `cs5004-team2-activities`) and for module 03 activities use a folder named `module03`. Add each of your teammates as collaborators to the repository, as well as the TA and the instructor. Include in the repository your solutions to each problem as`.java` files. **Include the link to this repository in your notes file**. 
+One student in the team should create a GitHub repository named `cs5004-team1-activities` (or `cs5004-team2-activities`) and for module 03 activities use a folder named `module03`. Add each of your teammates as collaborators to the repository, as well as the TA and the instructor. Each student should then clone the repository and include in their solution to each problem as `.java` files. Be sure to include in a comment your name as the author of the code (see: `@author` Javadoc tag). **Include the link to this repository in your notes file**. 
 
 ## 👉🏽 Final Discussion  (Last 15 minutes)
 
