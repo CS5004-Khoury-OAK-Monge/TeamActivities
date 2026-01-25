@@ -308,3 +308,5 @@ As part of **every** team activity, we will ask you to work on a Java Practice p
 * [CodeHS - Java Practice](https://codehs.com/practice/java)
 * [Coding Bat - Java](https://codingbat.com/java)
 * [Hacker Rank - Java(Basic)](https://www.hackerrank.com/domains/java?filters%5Bskills%5D%5B%5D=Java%20%28Basic%29)
+
+Use the GitHub repository created in previously (`cs5004-team1-activities` or `cs5004-team2-activities`), add a `module04` folder for these activities. Each student should then clone/pull the repository and include their solution to the problem they worked on as a `.java` file. Be sure to include in a comment your name as the author of the code (see: `@author` Javadoc tag). There should be 4 Java files, each uploaded by a different teammate. **Include the link to this repository in your notes file**. 
