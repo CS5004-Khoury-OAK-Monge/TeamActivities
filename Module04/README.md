@@ -1,10 +1,9 @@
 # Module 04 Team Activity - Java Collections Framework
 
-For this activity, we are going to explore the collections framework, and
-how to manipulate data structures with the Stream object. 
+For this activity, we are going to explore the collections framework, and how to manipulate data structures with the Stream object. 
 
 ## Grading
-Grades for team activities will be based on attendance and notes. You must attend, and as a team you need to generate notes that we can confirm your work. Ideally, you upload the notes as a PDF to the team meeting after you build them out. 
+Grades for team activities will be based on attendance and notes. You must attend, and as a team you need to generate notes that we can confirm your work. Ideally, you upload the notes as a PDF to the Canvas assignment. 
 
 > [!TIP] 
 > Good notes become a study guide for you and your team! Make sure they include everything you need to help better understand the weekly material. 
@@ -17,21 +16,22 @@ This team activity is designed to help you understand the following concepts:
 - How to use the Collections Framework
 - Key Data Structures in Java
 - Understanding Polymorphism to simplify your code
-- How to use the Stream object to manipulate data structures
-- How to use the Stream object to filter data
-- How to use the Stream object to sort data
-- How to use the Stream object to map data
-- How to use the Stream object to reduce data
+- How to use the Stream object to:
+  - manipulate data structures
+  - filter data
+  - sort data
+  - map data
+  - reduce data
 
 
 ## Collections Framework
 
-Java quickly gained in popularity since it came out in 1996 due to three major features. The first was built in garbage collection. You had a 'c' like language that managed memory for you. The second was that it was advertised to write once, and run on every machine. The third was an extensive API of classes that "shipped" with the Java Development Kit (JDK). These are now called the [Java Core Libraries].
+Java quickly gained in popularity since it came out in 1996 due to three major features. The first was built-in garbage collection. One of the troublesome aspects of programming in C is the allocation and deallocation of memory. In Java, a developer had a C-like language that managed memory automatically. The second was that it was advertised to write once, and run on every machine. The third was an extensive API of classes that "shipped" with the Java Development Kit (JDK). These are now called the [Java Core Libraries].
 
 
-Of the core libraries, the Collections Framework is one of the most used. It is a set of classes and interfaces that implement commonly reusable data structures.  In python, you know of List and Dictionary, those are both data structures. In Java, you have a similar set of data structures, though types are more strictly enforced.
+Of the core libraries, the Collections Framework is one of the most used. It is a set of classes and interfaces that implement commonly reusable data structures.  In Python, you know of List and Dictionary, those are both data structures. In Java, you have a similar set of data structures, though as expected, types are strictly enforced.
 
-The Collection Framework has the following interfaces and associated classes:
+The Collections Framework has the following interfaces and associated classes:
 
 ```mermaid
 ---
@@ -72,17 +72,17 @@ classDiagram
         <<interface>>
     }
 ```
-In the above diagram, the interfaces much of the framework, with the sample classes being listed for each item. Technically, classes like LinkedList implement both List and Queue, so isn't as simple as the diagram above.  Java has extensive documentation on [Collections].
+In the above diagram, the interfaces make up much of the framework, with only a sample of classes being listed for each item. Technically, classes like `LinkedList` implement both `List` and `Queue`, so the framework isn't as simple as the diagram above.  Java has extensive documentation on [Collections].
 
-For a comparison between Python and Java, dictionaries are like maps, lists are like lists, and sets are like sets.  
+For a comparison between Python and Java, dictionaries, lists and sets in Python are like maps, lists and sets in Java.  
 
 
 > [!NOTE]
-> For more details beyond this course a good tutorial can be found at https://stackabuse.com/java-collections-the-list-interface/, and the java framework can be found at https://docs.oracle.com/en/java/javase/21/core/java-core-libraries1.html.  Along with the tutorial at https://docs.oracle.com/javase/tutorial/collections/interfaces/index.html. 
+> For more details beyond this course a good tutorial can be found at [Java Collections: The List Interface](https://stackabuse.com/java-collections-the-list-interface/), the official [Java Core Libraries](https://docs.oracle.com/en/java/javase/21/core/java-core-libraries1.html), and also the tutorial at [dev.java: The Collections Framework](https://dev.java/learn/api/collections-framework/). 
 
 
 ### 👉🏽 Discussion
-Thinking back to your 5001 class, what were some cases to use a List or Dictionary in Python? The Collections framework is a bit more detailed in giving you more control of the underlying data structure, but the fundamentals are similar. 
+Thinking back to your CS 5001 class, what were some cases to use a List or Dictionary in Python? The Collections framework is a bit more detailed in giving you more control of the underlying data structure, but the fundamentals are similar. 
 
 
 <!-- Links -->
@@ -91,7 +91,7 @@ Thinking back to your 5001 class, what were some cases to use a List or Dictiona
 
 ### The power of inheritance and polymorphism
 When you are programming, you need to know which collection to use. The details of the types
-of data structures are covered more in CS 5008, but it is worth seeing the differences between. 
+of data structures are covered more in CS 5008, but it is worth seeing the differences between them. 
 
 Look for [ListRunner.java](ListRunner.java). The file is a simple program that shows
 two major concepts.
@@ -121,14 +121,14 @@ cd Part1  #(or wherever you have the files)
 javac ListRunner.java
 java ListRunner
 ```
-This run may take over a minute or so, so give it time. 
+`javac` is the Java compiler and `java` is a program to run compiled Java code. The last step (running the code) run may take over a minute or so, so be patient. 
 
 👉🏽 DISCUSS the results! 
 
-A powerful concept is that if your entire program uses List, you often only have one spot to change the class, and a simple change between ArrayList and LinkedList can make a big difference depending on what you are trying to do. 
+A powerful concept is that if your entire program uses List, you often only have one spot to change the class. A simple change between `ArrayList` and `LinkedList` can make a big difference in the run time depending on what the code has been programmed to do. 
 
 ## Streams
-Introduced in Java 8, the Stream object is a powerful way to manipulate data structures. It is a way to process data in a functional way, and can be used to filter, sort, map, and reduce data. Modern languages will often start with streams as part of their data structures, but due to java's history it wasn't added until a bit later in the design. 
+Introduced in Java 8, the Stream object is a powerful way to manipulate data structures. It is a way to process data in a functional way, and can be used to filter, sort, map, and reduce data. Modern languages will often start with streams as part of their data structures, but due to Java's history it wasn't added until a bit later in the design. 
 
 Traditionally, if I wanted to filter a list of numbers, I would have to write a loop to go through the list, and then add the numbers that met the criteria to a new list. 
 
@@ -159,7 +159,7 @@ public class YourClassName {
 ```
 
 ### :fire: Task: Practice 
-Go ahead and create a solution/java file, and put in the above code. Make sure to change YourClassName to match the name of the .java file you create. Throughout this Module you will continue to add to this file.
+Go ahead and create a solution/Java file, and put in the above code. Make sure to change YourClassName to match the **descriptive** name of the .java file you create. Throughout this Module you will continue to add to this file.
 
 ### Streams Example
 
@@ -182,18 +182,17 @@ public class YourClassName {
 
 Try the above code. 👉🏽 DISCUSS the results!
 
-In english, what the code is saying is:
+In English, the code says:
 1. Take the list of numbers as a stream
 2. Filter the stream to only include numbers that are even
-3. Collect the stream back into a list
+3. Collect the stream of even numbers into a list
 
 For the remainder of this TeamActivity, you will continue to build on your test file. While we have a solution, it is best for you all to work on your own versions and look towards the solution if stuck. 
 
 
 ### :fire: Task: Reduce
 
-The following code is an example of using a stream to "reduce" the results into a single value or set
-of items.
+The following code is an example of using a stream to "reduce" the results into a single value or set of items.
 
 ```java
 List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5);
@@ -217,7 +216,7 @@ Notice that the map takes a function (technically called a lambda function) that
 
 #### A bit harder examples
 
-A key idea about map, is that the built list can be any time. So let's say you have a list of strings, and you want to convert the information into a new data class. 
+A key idea about map, is that the built list can be any type. So let's say you have a list of strings, and you want to convert the information into a new data class. 
 
 The data class is as follows:
 
@@ -255,7 +254,7 @@ class Book {
 }
 ```
 
-I had a list of strings that were in the format "title,author,year". I want to convert this list of strings into a list of Book objects. 
+I have a list of strings that are in the format "title,author,year". I want to convert this list of strings into a list of Book objects. 
 
 ```java
 List<String> bookStrings = Arrays.asList("The Great Gatsby,F. Scott Fitzgerald,1925",
@@ -267,7 +266,7 @@ List<Book> books = bookStrings.stream().map(Book::createFromString).collect(Coll
 
 ```
 
-The above code is a bit more complex, but it shows how you can use the map function to convert one type of object into another across an entire set of objects. 
+The above code is a bit more complex, but it shows how you can use the map function to convert one type of object into another across an entire list of objects. 
 
 :fire: Task - Write a method that does the same thing. It (a) takes in a list of Strings, and (b) returns a list of Book objects. You can use [Book.java](Book.java) provided with this team activity. 
 
@@ -281,7 +280,7 @@ The above code is a bit more complex, but it shows how you can use the map funct
 
 
 ## Sorting Items
-Sorting Items in a list, requires that the item you are sorting implements the Comparable interface. This interface has a single method called compareTo that returns a negative number if the current object is less than the object being compared to, 0 if they are equal, and a positive number if the current object is greater than the object being compared to. By implementing Comparable, the sort method can be used to sort the list. 
+Sorting items in a list, requires that the type of item being sorted implements the `Comparable` interface. This interface has a single method called `compareTo` that returns a negative number if the current object is less than the object being compared to, 0 if they are equal, and a positive number if the current object is greater than the object being compared to. By implementing `Comparable`, the sort method can be used to sort the list. 
 
 ```java
 
@@ -292,12 +291,12 @@ System.out.println(sorted);
 
 The above code will sort the list of integers. However, as a group discuss what would happen if you tried to sort a list of Book objects. 
 
-:fire: Task - Go ahead and write code that sorts the books. Since comparable is implemented, you can use code similar to the above to sort the books. You do not have to write your own sort.
+:fire: Task - Go ahead and write code that sorts the books. Since comparable is implemented, you can use code similar to the above to sort the books. You do not have to (and should not) write your own sort.
 
 
 ## 👉🏽  Discussion
 
-Take a moment to discuss the various methods you wrote verse the stream functionality. What are the advantages and disadvantages of each? Can you think of other ways to test / apply the functionality. For example, maybe write a filter (see the first example) that filters the books that were published after 1950. Or write a filter that only takes odd numbers, but then adds (reduce) those odd numbers together. This last one combines the various methods you have learned so far, and you can 'chain' them together. We encourage you to work as a team to figure it out. 
+Take a moment to discuss the various methods you wrote verse the stream functionality. What are the advantages and disadvantages of each? Can you think of other ways to test / apply the functionality. For example, maybe write a filter (see the first example) that filters the books that were published after 1950. Or write a filter that only takes odd numbers, but then adds those odd numbers together (reduce) . This last one combines the various methods you have learned so far, and you can 'chain' them together. We encourage you to work as a team to figure it out. 
 
 Do you have to be an expert in Streams? No, not at all! But it does help to know what to look for to better understand the tools you have for the situation!
 
