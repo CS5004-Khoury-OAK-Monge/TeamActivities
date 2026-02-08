@@ -12,6 +12,6 @@ class Person {
 
     @Override
     public String toString() {
-        return "PersonSolution{" + "name='" + this.name + '\'' + '}';
+        return "Person{" + "name='" + this.name + '\'' + '}';
     }
 }
