@@ -14,7 +14,7 @@ public class Student extends Person {
 
     @Override
     public String toString() {
-        return "Solution{" + "name='" + this.getName() + '\'' + ", id=" + this.getId() + '}';
+        return "Student{" + "name='" + this.getName() + '\'' + ", id=" + this.getId() + '}';
     }
 
     public static void main(String[] args) {
