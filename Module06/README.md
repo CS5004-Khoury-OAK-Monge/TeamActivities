@@ -4,18 +4,18 @@ In this Team Activity, you will explore using Comparable interface to sort objec
 
 
 ## Grading
-Grades for team activities will be based on attendance and notes. You must attend, and as a team you need to generate notes that we can confirm your work. Ideally, you upload the notes as a PDF to the team meeting after you build them out. 
+Grades for team activities will be based on attendance and notes. You must attend, and as a team you need to generate notes that we can confirm your work. As usual, upload the notes as a PDF to the Canvas assignment.
 
 > [!TIP] 
 > Good notes become a study guide for you and your team! Make sure they include everything you need to help better understand the weekly material. 
 
 ### ⭐ Working in Teams ⭐
-When working in teams, remember do not let one person do all the work. Make sure to work together, and ask questions. It is also better if different people program, and you all take turns programming for various team assignments.
+When working in teams, remember do not let one person do all the work. Make sure to **work together, and ask questions**. It is also better if different people program, and you all take turns programming for various team assignments.
 
 ## Learning Objectives
 This team activity is designed to help you understand the following concepts:
 * Implement the `Comparable` interface to sort objects in a collection
-* Sort data using the `Collections.sort()` method and sorted() method in streams
+* Sort data using the `Collections.sort()` method and `sorted()` method in streams
 * Sort data using lambda expressions 
 * Use the `TreeSet` and `TreeMap` classes to keep data presorted in a collection
 * Identify the benefits of a Strategy Pattern for sorting data
@@ -68,7 +68,7 @@ What were some surprises? Why do you think 'a' is greater than 'A'?
 
 > [!WARNING]
 > A common mistake in code is using comparable assuming the results are -1, 0, 1. As you can see from the example, less than 0, 0, greater than 0 is the correct answer.
-> That is because java leaves it up to the implementation. In the case of strings, they convert it to the int value of the characters and subtract them, which
+> That is because Java leaves it up to the implementation. In the case of strings, they convert it to the int value of the characters and subtract them, which
 > can be negative, zero, or positive. 
 
 
@@ -125,9 +125,9 @@ public class Flight implements Comparable<Flight> {
 To sort a collection of objects you can use a variety of methods:
 
 * `Collections.sort(list)` - This is a static method in the Collections class that takes a list and sorts it in place. 
-* `list.sort(null)` - This is part of every list, if null is passed in for the parameter, it will sort the list in place using the compareTo() method.
+* `list.sort(null)` - This is part of every list, if null is passed in for the parameter, it will *sort the list in place* using the compareTo() method.
     * You can also pass in a different type of Comparable to sort by a different method.
-* `list.stream().sorted()` - This is a stream method that will sort the list and return a new list. It does not modify the original list! 
+* `list.stream().sorted()` - This is a stream method that will sort the objects in the list and return a new list. It does not modify the original list! 
 
 Looking at the options above, let's focus on `list.sort(null)`. In the Flight class, you can sort a list of flights by calling `flights.sort(null)`, this could make your main method look like this:
 
@@ -153,7 +153,7 @@ System.out.println(flights)
 
 If you haven't already, run the main method (adding those lines if you don't have them), and discuss the following:
 
-* What does in place mean?
+* What does *sort the list in place* mean?
 * Do you have the original order of the list?
 * Pre and post sort, what is the value of flights[0]?
 
@@ -164,16 +164,16 @@ Sometimes you need to change the sort, and the `compareTo()` method is not enoug
 
 > [!IMPORTANT]
 > Lambda expression are meant to be small and concise. They are not meant to be full methods, but rather a quick way to implement an interface with one method.
-> If you find yourself writing something long, it is best to create a proper Comparable class. You can learn more about them [here](https://www.geeksforgeeks.org/comparator-interface-java/) - though the examples provide would have made good lambda expressions. 
+> If you find yourself writing something long, it is best to create a proper Comparator class. You can [learn more about Comparator class](https://www.geeksforgeeks.org/comparator-interface-java/) - though the examples provided would have made good lambda expressions. 
 
-If we wanted to sort by flight number only, we could look at the following for a lambda expression:
+If we wanted to sort by flight number only, we could use a lambda expression as shown below. The lambda expression is used for a `Comparator`, more on that later in this activity.
 
 ```java
 
 flights.sort((f1, f2) -> f1.getFlightNumber() - f2.getFlightNumber());
 ```
 
-Breaking down the expression it is saying:
+Breaking down the expression, it says:
 
 * flights.sort() - sort the list
 * (f1, f2) - these are the two flights to compare (parameters to pass in)
@@ -181,26 +181,26 @@ Breaking down the expression it is saying:
 * f1.getFlightNumber() - f2.getFlightNumber() - this is the code to compare the two flights
 
 :fire:  As a team, implement a lambda expression to sort by airline code, and
-then see how the print out changes. 
+then see how the output changes. 
 
 ## Keeping Items Sorted
 
 In Java, there are two classes that keep items sorted, `TreeSet` and `TreeMap`. Often, it is beneficial to keep items sorted as they are added, and these classes do that. As per the name, Set keeps a unique set of items sorted, and Map keeps a unique set of keys sorted for then accessing the values.
 
-👉🏽  Discussion  - Thinking back to the last module, was there any discernable order of HashSet and HashMap(keys) when you printed out the contents?  This is because it is often a lot quicker to just store and retrieve items if order isn't important. 
+👉🏽  Discussion  - Thinking back to the last module, was there any discernible (i.e, observable or distinguishable) order of HashSet and HashMap(keys) when you printed out the contents?  This is because it is often a lot quicker to just store and retrieve items if order isn't important. 
 
 ### TreeSet
 
 The `TreeSet` class is a set that is sorted. It uses the `compareTo()` method to sort the items. If you add an item to a `TreeSet`, it will be sorted as it is added. 
 
-:fire: You also will want to implement .equals and .hashCode methods in the Flight class. This is because the TreeSet uses these methods to determine if an object is already in the set.  There are some general rules to follow:
+:fire: As we learned previously, you also will want to implement `.equals` and `.hashCode` methods in the Flight class. This is because the TreeSet uses these methods to determine if an object is already in the set. Summarizing the general rules to follow we learned before:
 
 * If two objects are equal, they should have the same hash code, but not all objects need to have unique hash codes.
 * If two objects are equal, they should also return 0 from the compareTo() method.
 
 It is up to the programmer to ensure these rules are followed, and unfortunately, not following these rules can lead to some unusual errors. 
 
-**Assumption**: When implementing the `equals()` method, you can assume that flightID (combination of airline code and flight number) is unique, and you are free to use the .equals and .hashCode methods of the String class. - Don't recreate the wheel!
+**Assumption**: When implementing the `equals()` method, you can assume that flightID (combination of airline code and flight number) is unique, and you are free to use the .equals and .hashCode methods of the String class. As the saying goes, *don't reinvent the wheel*!
 
 
 Now that we have the Flight class ready, let's see how to use a TreeSet:
@@ -250,7 +250,7 @@ Another common case is for the key to be a string of the unique identifier, and 
 
 A common question is that there are a lot of potential attributes to sort against, what is the best way to handle this? One way is to use the Strategy Pattern. The Strategy Pattern is a design pattern that allows you to define a family of algorithms, encapsulate each one, and make them interchangeable.
 
-That is a lot of big words, but let's think about in terms of sorting. Your compareTo() method can be the 'default' case, and only often implemented if there is a uniqueID of some sort in the class (unique way to identify the object). It is often called the "natural order". If you want to sort by other attributes, you can create a new class that implements the `Comparator` interface, *for each* attribute you want to sort. This means you may have multiple classes that implement the `Comparator` interface, all focusing on the type of sorting strategy you want to use.
+That is a lot of big words, but let's think about in terms of sorting. Your compareTo() method can be the 'default' case, and only often implemented if there is a unique identifier of some sort in the class (unique way to identify the object). It is often called the "natural order". If you want to sort by other attributes, you can create a new class that implements the `Comparator` interface, *for each* attribute you would want to sort on. This means you may have multiple classes that implement the `Comparator` interface, all focusing on the type of sorting strategy you want to use.
 
 The solutions folder has an example of this using the Integer class. By default, the Integer class sorts based on the value of the integer. However, [IntegerSortStrategy.java](solutions/IntegerSortStrategy.java) has a number of classes that implement the `Comparator` interface to sort a list of Integers in different ways. We then test that strategy in the [StrategyTester.java](solutions/StrategyTester.java) file.
 
@@ -263,7 +263,7 @@ We will cover the Strategy Pattern in more detail in a future module, but we wan
 
 
 ## :fire: Java Practice Problem
-As part of **every** team activity, we will ask you to work on a Java Practice problem, and submit the code to the team files section (or as part of your notes). This is meant to give you practice similar to technical interviews, but also help build up your java skills. **Each team member needs to select a different problem!** But you can share/and should share answers and help each other. Remember, to learn a new language, the best thing you can do is practice! Here are some resources to find practice problems but you are not limited to them:
+As part of **every** team activity, we will ask you to work on a Java Practice problem, and submit the code to the team files section (or as part of your notes). This is meant to give you practice similar to technical interviews, but also help build up your java skills. **Each team member needs to select a different problem!** But you can share/and should share answers and help each other. Remember, to learn a new language, the best thing you can do is practice! Here are some resources to find practice problems, but you are not limited to them:
 
 * [CodeHS - Java Practice](https://codehs.com/practice/java)
 * [Coding Bat - Java](https://codingbat.com/java)
