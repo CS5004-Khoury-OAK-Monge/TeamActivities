@@ -1,33 +1,33 @@
 # Module 05 Team Activity - Equality, Hashing, and Collections Framework
 
-For this activity, we are going look at the purpose of .equal and .hashCode methods in Java. We will also look at the Collections Framework in Java, specifically in the context of collections that need .equals and .hashCode methods for them to work effectively. 
+For this activity, we are going look at the purpose of `.equals` and `.hashCode` methods in Java. We will also look at the Collections Framework in Java, specifically in the context of collections that need `.equals` and `.hashCode` methods for them to work effectively. 
 
 Additionally, to further your understanding of Java, we will cover in more detail on how to read and write files. 
 
 ## Grading
-Grades for team activities will be based on attendance and notes. You must attend, and as a team you need to generate notes that we can confirm your work. Ideally, you upload the notes as a PDF to the team meeting after you build them out. 
+Grades for team activities will be based on attendance and notes. You must attend, and as a team you need to generate notes that we can confirm your work. As usual, upload the notes as a PDF to the Canvas assignment. 
 
 > [!TIP] 
 > Good notes become a study guide for you and your team! Make sure they include everything you need to help better understand the weekly material. 
 
 ### ⭐ Working in Teams ⭐
-When working in teams, remember do not let one person do all the work. Make sure to work together, and ask questions. It is also better if different people program, and you all take turns programming for various team assignments.
+When working in teams, remember do not let one person do all the work. Make sure to **work together, and ask questions**. It is also better if different people program, and you all take turns programming for various team assignments.
 
 ## Learning Objectives
 This team activity is designed to help you understand the following concepts:
-* How to properly implement .equals and .hashCode methods in Java
+* How to properly implement `.equals` and `.hashCode` methods in Java
 * Describe the Set and Map interfaces in Java
-* How to use the HashSet and HashMap  in Java, along how they work with Steams.
+* How to use the HashSet and HashMap  in Java, along how they work with Streams.
 * Be able to read and write to a  File in using Java
 
 ## Equality in Java
 
-To better understand equality in java, it is worth discussing the difference between a primitive and an object. 
+To better understand equality in Java, it is worth discussing the difference between a primitive and an object. 
 
 * Primitive types are the basic data types in Java, such as int, char, double, and boolean. Another way to look at them is they are types that can represented by a single number in memory. 
 * Objects are complex data types that are made up of multiple primitive types or objects. In memory, they are often represented by a reference to a memory location. 
 
-Let's take the following java code as an example:
+Let's take the following Java code as an example:
 
 ```java
 class Person {
@@ -59,12 +59,12 @@ public class Student extends Person {
 }
 ```
 
-Using the PythonTutor (which also happens to allow java visualizations, though a bit buggy and limited) you may have used in 5001, we are able to generate the following visualization of the code above:
+Using the PythonTutor (which also happens to allow Java visualizations, though a bit buggy and limited) you may have used in 5001, we are able to generate the following visualization of the code above:
 
 ![Student Run Visualization](student_memory.png)
 
  
- Where ever there is an arrow, there is actually a memory address. 
+ In PythonTutor, an arrow is a visualization of a variable (where arrow starts) storing a memory address that is the location  (where arrow ends) where the thing (object, array, etc) represented by the variable is stored. 
 
  ### 👉🏽 Discussion
  Looking at both the memory diagrams, and the code - what do you think will be printed when the code is run? Why? 
@@ -85,11 +85,11 @@ changed some from the above example, so you can better test your results.  While
 
 ### Implementing .hashCode in Java
 
-The `.hashCode` method is used to generate a unique hash code (`int` value) for an object. This is used in conjunction with the `.equals` method to determine if two objects are equal. Why not just equals? There are multiple algorithms such as a hashing algorithm that requires an int representation of an object. By having .hashCode, we can use the int representation to quickly determine if two objects are equal along with other benefits. 
+The `.hashCode` method is used to generate a **unique** hash code (`int` value) for an object. This is used in conjunction with the `.equals` method to determine if two objects are equal. Why not just equals? There are multiple algorithms such as a hashing algorithm that requires an int representation of an object. By having .hashCode, we can use the int representation to quickly determine if two objects are equal along with other benefits. 
 
 > [!IMPORTANT]
 > It is standard practice to always override the `.hashCode` method when you override the `.equals` method, 
-> as not having them equivalency between the two causes unusual errors when dealing with built in java collections.
+> Not having them leads to equivalency between the two causing unusual errors when dealing with built-in java collections.
 > These two methods along with .toString() are the most common methods to override in any
 > new class you create.
 >
@@ -109,7 +109,7 @@ public int hashCode() {
 }
 ```
 
-Notice that ID is a int, and name is a string. That is fine. What it does is take the hashCode of Integer(id), and the hashCode of String(name) and combines them.  You could attempt to generate a unique identifier for the student on your own, such as doing the following
+Notice that ID is an int, and name is a string. That is fine. What it does is take the hashCode of Integer(id), and the hashCode of String(name) and combines them.  You could attempt to generate a unique identifier for the student on your own, such as doing the following
 
 ```java
 
@@ -130,11 +130,11 @@ Student s1 = new Student("jan", 1);
 Student s2 = new Student("anj", 1);
 ```
 
-As all the characters are the same even if they are in a different order. This is called a "Collision". In practice they are unavoidable, but the more unique the hash code, the less likely they are to occur. A topic you may further explore in CS 5008.
+As all the characters are the same even if they are in a different order. This is called a "Collision". In practice, collisions are unavoidable, but the more unique the hash code, the less likely they are to occur. A topic you may further explore in CS 5008.
 
 
 > [!NOTE]
-> In industry is very common to use a ready made class that handles equality and hashCode for you. These class are called [EqualsBuilder](https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/builder/EqualsBuilder.html) and [HashCodeBuilder](https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/builder/HashCodeBuilder.html). They are part of the Apache Commons Lang library. You can see an example [here](https://www.codeproject.com/articles/143431/apache-commons-equalsbuilder-and-hashcodebuilder).
+> In industry, it is very common to use a ready-made class that handles equality and hashCode for you. These class are called [EqualsBuilder](https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/builder/EqualsBuilder.html) and [HashCodeBuilder](https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/builder/HashCodeBuilder.html). They are part of the Apache Commons Lang library. Explore this [example of EqualsBuilder and HashCodeBuilder](https://www.codeproject.com/articles/Apache-Commons-EqualsBuilder-and-HashCodeBuilder#comments-section) to learn more about these classes.
 >
 > Starting with Homework 05, you can OPTIONALLY use the [Apache Commons Lang Library](https://commons.apache.org/) classes in your code as we have included the commons-lang3 library in the project.
 
@@ -170,10 +170,10 @@ What do you notice about the order of the items?
 
 ### :fire: Practice!
 
-You will fine [SetPractice.java](SetPractice.java) in the repository. This contains a main method so you can practice with sets. 
+You will find [SetPractice.java](SetPractice.java) in the repository. This contains a main method so you can practice with sets. 
 
 1. Take a look at the provided code, discuss what it does. 
-2. Add to the code an set that uses Person, with both Person and Student objects. Provide some examples including what happens when you try to add a duplicate. For example, the constructors looked like the following:
+2. Add to the code a set that uses Person, with both Person and Student objects. Provide some examples including what happens when you try to add a duplicate. For example, the constructors looked like the following:
   ```java
     Person p1 = new Person("Alice");
     Person p2 = new Student("Alice", 1);
@@ -181,12 +181,12 @@ You will fine [SetPractice.java](SetPractice.java) in the repository. This conta
     Person p4 = new Student("Alice", 1); // same as p2?
   ```
 
-What happens when you add p4 to the set? Is it working the same way when you add Strings? Why or why not? (if not, double check your equal and hashCode methods)  
+What happens when you add p4 to the set? Is it working the same way when you add Strings? Why or why not? (if not, double-check your equal and hashCode methods)  
 
 
 ## Maps in Java
 
-In python, a set was related to a dictionary. The dictionary would take key:value pairs, but all keys had to be unique. As such, the collection of keys was a set.  In java, this is very similar, but instead of calling it a dictionary, we call it a `Map`. The `Map` interface is used to represent a collection of key-value pairs. The `Map` interface is implemented by the `HashMap` class. 
+In python, a set was related to a dictionary. The dictionary takes key:value pairs, but all keys have to be unique. As such, the collection of keys was a set.  In Java, there is a similar structure, but instead of calling it a dictionary, we call it a `Map`. The `Map` interface is used to represent a collection of key-value pairs. The `Map` interface is implemented by the `HashMap` class. 
 
 As such, to create a new map, you can do the following:
 
@@ -221,7 +221,7 @@ Yes, your value can be any valid object, including another collection! For your 
 
 ### Streams with Sets
 
-It is possible to still use streams with maps and sets. For example, lets take our set and add some additional values to it. 
+It is possible to still use streams with maps and sets. For example, let's take our set and add some additional values to it. 
 
 ```java
 Set<Person> set = new HashSet<>();
@@ -241,7 +241,7 @@ people.add(new Person("Carol"));
 
 ### Streams with Maps
 
-With maps are a bit more complicated, but you can still use streams. Often,
+Using streams with maps is a bit more complicated, but it's still possible. Often,
 you either use `.keySet().stream()` or `.values().stream()` to get the stream of keys or values. You can also use `.entrySet().stream()` to get a stream of key-value pairs. 
 
 ```java
@@ -252,12 +252,14 @@ food.put("Banana", 2.0);
 food.put("Cherry", 4.0);
 
 
-food.entrySet().stream().map(x -> x.getKey() + " costs " + x.getValue())
+food.entrySet().stream()
+      .map(x -> x.getKey() + " costs " + x.getValue())
       .forEach(System.out::println);
- System.out.println("Food that costs more than 3.0");
- food.entrySet().stream().filter(x -> x.getValue() > 3.0)
-          .map(x -> x.getKey() + " costs " + x.getValue())
-          .forEach(System.out::println);
+System.out.println("Food that costs more than 3.0");
+food.entrySet().stream()
+      .filter(x -> x.getValue() > 3.0)
+      .map(x -> x.getKey() + " costs " + x.getValue())
+      .forEach(System.out::println);
 ```
 
 Make sure to run the above code, and see what happens. 
@@ -285,8 +287,8 @@ for(String key : food.keySet()) {
 ```
 In the case for Maps, a for:each loop is a stronger option than a for number iterated loop. 
 
-Needless to say, there are multiple ways to handle it in java, and 
-for now, you should focus on what makes the most sense to you. If you are wonder, "but what is more efficient?" the answer is, it depends on the situation.
+Needless to say, there are multiple ways to iterate over maps in Java, and 
+for now, you should focus on what makes the most sense to you. If you are wondering, "but what is more efficient?" the answer is, it depends on the situation.
 
 ## File I/O in Java
 
@@ -298,7 +300,7 @@ While not directly related to the course module, we wanted you to practice with 
 
 ### Reading Files Pre Java 17
 
-Pre Java 17, the most common way to read a file was to use the `BufferedReader` class. This class is used to read text from a character-input stream. It can be used to read data line by line by readLine() method. 
+Pre Java 17, the most common way to read a file was to use the `BufferedReader` class. This class is used to read text from a character-input stream. It can be used to read data line-by-line using the `readLine()` method. 
 
 ```java
 public static void main(String[] args) {
@@ -323,7 +325,7 @@ You can run the above example using [BufferedReaderExample.java](BufferedReaderE
 
 ### Writing Files Pre Java 17
 
-Pre Java 17, the most common way to write a file was to use the `BufferedWriter` class. This class is used to write text to a character-output stream. It can be used to write data line by line by write() method. 
+Pre Java 17, the most common way to write a file was to use the `BufferedWriter` class. This class is used to write text to a character-output stream. It can be used to write data `line-by-line` using the `write()` method. 
 
 ```java
 public static void main(String[] args) {
@@ -346,7 +348,7 @@ You can run the above example using [BufferedWriterExample.java](BufferedWriterE
 
 ### Reading Files Post Java 17
 
-Starting with Java 17, you can use the `Files` class to read and write files. The `Files` class provides a method called `readAllLines` that reads all lines from a file as a `List` of `String`. 
+Starting with Java 17, you can use the `Files` class to read and write files. The `Files` class provides a method called `readAllLines` that reads all lines from a file as a `List<String>`. 
 
 ```java
 public static void main(String[] args) {
@@ -360,19 +362,19 @@ public static void main(String[] args) {
     }
 }
 ```
-This is similar to what was done with the `BufferedReader` class, but it is a bit more concise. It is also what you was done in homework 03. You can also use the Files.lines() method to get a Stream of lines from a file if you already
+This is similar to what was done with the `BufferedReader` class, but it is a bit more concise. It is also what was done in homework 03. You can also use the Files.lines() method to get a Stream of lines from a file if you already
 plan to work with a stream (using .map or .filter for example). 
 
 
 > [!NOTE]
-> Using java.nio.Files (new input output) only reads the lines in as a group. If you want to read a line and process it, then read another line, you need to go back to the BufferedReader class. This is intentional. Ideally, you want to read all lines at once, and then process them. This keeps from having potential access issues with the file. However, for very large files, that may not be possible to do in a time efficient manner. What is better to use? As per usual with CS, the answer is "it depends", though for the most part, the Files class is the better option.
+> Using `java.nio.Files` (new input output) only reads the lines in as a group. If you want to read a line and process it, then read another line, you need to go back to the BufferedReader class. This is intentional. Ideally, you want to read all lines at once, and then process them. This keeps from having potential access issues with the file. However, for very large files, that may not be possible to do in a time-efficient manner. What is better to use? As per usual with CS, the answer is "it depends", though for the most part, the Files class is the better option.
 
 
 
 
 ### Writing Files Post Java 17
 
-Starting with Java 17, you can use the `Files` class to write files. The `Files` class provides a method called `write` that writes a `List` of `String` to a file. 
+Starting with Java 17, you can use the `Files` class to write files. The `Files` class provides a method called `write` that writes a `List<String>` to a file. 
 
 ```java
 public static void main(String[] args) {
@@ -413,7 +415,7 @@ Is it a good or bad idea to design around the data? Why or why not?
 
 There isn't a clear answer on this, and that is alright! It is more about understanding the trade-offs and making the best decision for the situation. A good Software Architect will be able to do both, and often they take both approaches into account when designing a system. 
 
-Take away, if you are pounding your head on getting your data to fit your design, then it may be time to reevaluate your design. And for much of what you do, a data driven approach is really good for the 'data/model layer' of your application.
+The takeaway lesson is that if you are pounding your head on getting your data to fit your design, then it may be time to reevaluate your design. And for much of what you do, a data driven approach is really good for the 'data/model layer' of your application.
 
 
 ## :fire: Java Practice Problem
@@ -422,3 +424,5 @@ As part of **every** team activity, we will ask you to work on a Java Practice p
 * [CodeHS - Java Practice](https://codehs.com/practice/java)
 * [Coding Bat - Java](https://codingbat.com/java)
 * [Hacker Rank - Java(Basic)](https://www.hackerrank.com/domains/java?filters%5Bskills%5D%5B%5D=Java%20%28Basic%29)
+
+Use the GitHub repository created in previously (`cs5004-team1-activities` or `cs5004-team2-activities`), add a `module04` folder for these activities. Each student should then clone/pull the repository and include their solution to the problem they worked on as a `.java` file. Be sure to include in a comment your name as the author of the code (see: `@author` Javadoc tag). There should be 4 Java files, each uploaded by a different teammate. **Include the link to this repository in your notes file**. 
