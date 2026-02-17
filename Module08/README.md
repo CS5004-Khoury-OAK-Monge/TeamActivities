@@ -3,7 +3,7 @@
 In this team activity, we will explore the controller component in the Model-View-Controller (MVC) design pattern. The controller is the component that manages the interaction between the model and the view. It is responsible for processing client input, updating the model, and updating the view.
 
 ## Grading
-Grades for team activities will be based on attendance and notes. You must attend, and as a team you need to generate notes that we can confirm your work. Ideally, you upload the notes as a PDF to the team meeting after you build them out. 
+Grades for team activities will be based on attendance and notes. You must attend, and as a team you need to generate notes that we can confirm your work. You need to upload the notes as a PDF to Canvas after you write them. Avoid using AI to answer the questions; answers to the questions must be in your own words.
 
 > [!TIP] 
 > Good notes become a study guide for you and your team! Make sure they include everything you need to help better understand the weekly material. 
@@ -34,25 +34,25 @@ It is worth noting that that just because there are three components, there are 
 
 👉🏽  Discussion - Wait, Interchangeable? Discuss what this could mean in relation to MVC, think about how polymorphism works to help you. 
 
-### Supervisor Controller Pattern
+### Supervising Controller Pattern
 
-A more strict view of the MVC pattern is the Supervision Controller. In this patter, the view  never interacts with the model. Instead the controller is the only component that interacts with the model. This is a more strict interpretation of the MVC pattern, and is often used in web applications. 
+A more strict view of the MVC pattern is the Supervising Controller. In this pattern, the view  never interacts with the model. Instead, the controller is the only component that interacts with the model. This is a more strict interpretation of the MVC pattern, and is often used in web applications. 
 
 👉🏽  Discussion - Discuss how this can be advantageous, and any limitations that come to mind.
 
 
 > [!NOTE]
-> Is there a correct answer? No! Design patterns about trade offs and balances. You gain one thing but you may loose another. The important part is to make sure you follow SOLID design principles, and that your code is maintainable and scalable.
+> Is there a correct answer? No! Design patterns about tradeoffs and balances. You gain one thing but you may lose another. The important part is to make sure you follow SOLID design principles, and that your code is maintainable and scalable.
 
 ### Observer Pattern
 
-Related to the interaction is the Observer Pattern. This pattern is used to allow an object to publish changes to its state. Other objects subscribe to be notified when the state changes. This is often used in GUI programming, and is a common pattern in Java. We will explore this more next module, but it is worth considering it conceptually. With this question:
+Related to the interaction is the Observer Pattern. This pattern is used to allow an object to publish changes to its state. Other objects subscribe to be notified when the state changes. This is often used in GUI programming, and is a common pattern in Java. We will explore this more next module, but it is worth considering it conceptually with this question:
 
 > If the controller drives the interaction between client, model, and view: how can the view or model notify the controller when something has changed?
 
 
 ## Packages
-Before we practice with controllers, let take break from patterns to talk about packages.  The past few assignments and lasts week's module has a lot of files! After a while it can be hard to keep track of everything. This is where packages come in. Packages are a way to organize your code into groups. This makes it easier to find and manage your code.
+Before we practice with controllers, let's take a break from patterns to talk about packages.  The past few assignments and last week's module has a lot of files! After a while it can be hard to keep track of everything. This is where packages come in. Packages are a way to organize your code into groups. This makes it easier to find and manage your code.
 
 While it doesn't have to be model, view, controller for your packages, it can be a common way to organize your code with the MVC pattern, along with additional packages for utilities, or other components. 
 
@@ -62,7 +62,7 @@ To represent a package in java, you use the `package` keyword at the top of your
 package com.mycompany.myapp;
 ```
 
-However, you **ALSO** need to ensure that your file is in the correct directory structure. For the above package, you would need to put your file in a directory called `com/mycompany/myapp`. This is a common source of errors when working with packages. This directory structure is relative to the root of your project - often where your `src` directory is. Using gradle that is `src/main/java` or `src/main/resources` for java files and resources respectively.  When you compile your code, the compiler will look at the package statement and the directory structure to determine where to put the compiled class files, and it will also look at the directory structure to determine where to find the class files when you run your program.
+However, you **ALSO** need to ensure that your file is in the correct directory structure. For the above package, you would need to put your file in a directory called `com/mycompany/myapp`. This is a common source of errors when working with packages. This directory structure is relative to the root of your project - often where your `src` directory is. Using Gradle that is `src/main/java` or `src/main/resources` for Java files and resources respectively.  When you compile your code, the compiler will look at the package statement and the directory structure to determine where to put the compiled class files, and it will also look at the directory structure to determine where to find the class files when you run your program.
 
 👉🏽  Discussion - How can packages be useful? What would be some ways you could break up your code from past assignments or team activities. Pick one activity and discuss how you can break it up into concepts, that can then be coupled into packages. 
 
@@ -102,7 +102,7 @@ public class Calculator {
 ```
 
 > [!TIP]
-> What is `Number`? It is an abstract class that is the superclass of all classes that represent numeric values in java. It is used here to allow the calculator to work with different types of numbers, such as `Integer`, `Double`, and `BigDecimal`. We assumed `doubleValue()` as math operations are typically done with floating point numbers, and not whole numbers. Though an additional feature could be to allow the user to specify the type of number they want to use. Learn more about [`Number`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Number.html).
+> What is `Number`? It is an abstract class that is the superclass of all classes that represent numeric values in Java. It is used here to allow the calculator to work with different types of numbers, such as `Integer`, `Double`, and `BigDecimal`. We assumed `doubleValue()` as math operations are typically done with floating point numbers, and not whole numbers. Though an additional feature could be to allow the user to specify the type of number they want to use. Learn more about [`Number`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Number.html).
 
 Since there are a number (pun intended) of operations, it may also make sense to create an operation `enum` that will help make it easier for the controller to determine which operation to perform. 
 
@@ -235,7 +235,7 @@ Since a calculator can chain operations such as `+ 1 + 2 * 3 5` which is
 the equivalent of `1 + 2 + 3 * 5`, we need to parse the input and
 perform the operations in the correct order. We can do this by
 splitting the input into tokens and using a stack to keep track of
-the numbers and operations. You don't have to worry about parenthesis or order of operations for this exercise. 
+the numbers and operations. You don't have to worry about parenthesis or order of operations for this exercise (consider why that's the case!). 
 
 ```java
 
@@ -297,7 +297,7 @@ private Number processOperation(String operation) {
 }
 ```
 
-👉🏽  Discussion  and :fire: Task- Add the above code to your controller but before you add it, discuss what each element does. You may even want to clean up the code, as the switch statement could be its own private method (which probably would follow SOLID design better).
+👉🏽  Discussion  and :fire: Task - Add the above code to your controller, but before you add it, discuss what each element does. You may even want to clean up the code, as the switch statement could be its own private method (which probably would follow SOLID design better).
 
 ### Huston, we have a problem, sort of.
 
@@ -336,7 +336,7 @@ The above interface may be a bit too detailed (specially based on where you plac
 
 Within the Controller, the .run() method ends up being tightly coupled with the view. This is because the loop to run the program is hosted there, and as such, if we change views, we would still need to be passing in the string "exit" to close the program. This may not at all be what we want. Instead, if we create an interface that allows the view to send messages to the controller, we can then have the controller decide what to do with those messages while the view handles all the interaction. 
 
-To make such a change, we need to create an minimal interface for the controller. This exposes the methods that the view can call, and only those. 
+To make such a change, we need to create a minimal interface for the controller. This exposes the methods that the view can call, and only those. 
 
 ```java
 public interface IController {
@@ -404,7 +404,7 @@ A major advantage of this approach is that the view and controller are now decou
 
 
 > [!CAUTION]
-> There are no easy answers! This is design, and for every design presented, there is a good argument for why it is both the best and a bad idea. One design flaw in this approach is if the controller is doing other things in the background. It would be good to add two way communication where the view tells the controller the exit action has happened, causing communication through all the components.  We will cover this more in the next module.
+> There are no easy answers! This is design, and for every design presented, there is a good argument for why it is both the best and a bad idea. One design flaw in this approach is if the controller is doing other things in the background. It would be good to add two-way communication where the view tells the controller the exit action has happened, causing communication through all the components.  We will cover this more in the next module.
 > 
 > The goal of this activity is to get you thinking about how to design your code, and how to make it more maintainable and scalable.
 
@@ -421,3 +421,6 @@ As part of **every** team activity, we will ask you to work on a Java Practice p
 * [CodeHS - Java Practice](https://codehs.com/practice/java)
 * [Coding Bat - Java](https://codingbat.com/java)
 * [Hacker Rank - Java(Basic)](https://www.hackerrank.com/domains/java?filters%5Bskills%5D%5B%5D=Java%20%28Basic%29)
+
+  As in previous team activities, use the repository for the team activities (as instructed by the TA). Add each of your teammates as collaborators to the repository, as well as the TA and the instructor. Each student should then clone the repository and include in their solution to each problem as `.java` files. Be sure to include in a comment your name as the author of the code (see: `@author` Javadoc tag). **Include the link to this repository in your notes file**. 
+ 
