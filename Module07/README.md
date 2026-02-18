@@ -160,7 +160,7 @@ Then add the following to the `endElement` method.
 
 ## :keyboard: Putting it together: SKIP this part!
 
-Please skip this part about writing your own SAX parser. You can move on to the section on **Relationship to Model**. Unfortunately, [https://boardgamegeek.com](Board Game Geek) recently changed its use of their XML APIs so that now registration and approval is needed.
+Please skip this part about writing your own SAX parser. You can move on to the section on **Relationship to Model**. Unfortunately, [Board Game Geek](https://boardgamegeek.com) recently changed its use of their XML APIs so that now registration and approval is needed.
 
 Now, as a team, you will work on **writing your own SAX parser** to read a more complex XML file. We have started it for you in [BGGeekXMLReader.java](BGGeekXMLReader.java). The flow starts in [BGGeek.java](BGGeek.java) where we connect to the BoardGameGeek API and download the information about a game. We then send that information to BGGeekXMLReader.java to parse the XML information. However, that information is not complete.
 
