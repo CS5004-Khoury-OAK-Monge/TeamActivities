@@ -158,7 +158,9 @@ Then add the following to the `endElement` method.
 > The most common error in using SAX is not resetting the buffer after you have read the data. This can cause the data to be incorrect, not read at all, or read all at once. Thus, the reason `startElement` has `buffer.setLength(0);`. Then between the start of a tag such as `<person>` and the end tag, `characters(char[] ch, int start, int length)` is called, so you add
 > the contents of char[] ch to your buffer. During endElement, you deal with that information how you need (add it to another object, ignore it, etc).
 
-## :keyboard: Putting it together
+## :keyboard: Putting it together: SKIP this part!
+
+Please skip this part about writing your own SAX parser. You can move on to the section on **Relationship to Model**. Unfortunately, [https://boardgamegeek.com](Board Game Geek) recently changed its use of their XML APIs so that now registration and approval is needed.
 
 Now, as a team, you will work on **writing your own SAX parser** to read a more complex XML file. We have started it for you in [BGGeekXMLReader.java](BGGeekXMLReader.java). The flow starts in [BGGeek.java](BGGeek.java) where we connect to the BoardGameGeek API and download the information about a game. We then send that information to BGGeekXMLReader.java to parse the XML information. However, that information is not complete.
 
@@ -172,7 +174,9 @@ As a Team complete the reader to include thumbnail, description, and year publis
 
 The model layer is your data layer in an application, and also how you manipulate that data. Knowing how to convert and read different file formats is only part of the model, but it is an essential element. It is also worth noting an important characteristic of the XMLReader for the Board Game example - it takes an `InputStream` not just a file! This allows the model to get the data from a variety of sources, not just a file, but still the model itself is the same once the data is brought into the program. 
 
-### 👉🏽  Discuss 
+### 👉🏽  Discuss  -- to be completed!
+Resume your work here!
+
 An important aspect  of the model is that it **protects** the data from the rest of the application. This can be done by sending records or other immutable (or copies) of information to the controller and view, but rarely is the full mutable instance of an object sent up to the other components of the program - even if the object is mutable inside to the model. **Talk about this concept**, and what are other major characteristics of the model layer. 
 
 You will continue to get practice with Models, and most stuff you have written already falls into the model layer of an application. The overall philosophy of MVC is to protect different aspects of the program, only exposing exactly what is needed - and nothing more. If this sounds familiar it is! This is essentially encapsulation at the design level, and many forms of architecture follow this principle. As such learning MVC will help when you explore other design patterns and architectures, if you keep in mind the goal is always to protect and provide a separation of concerns. 
