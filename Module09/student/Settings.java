@@ -39,7 +39,7 @@ public final class Settings {
     private static Properties loadProperties() {
         Properties properties = new Properties();
         try {
-            InputStream fis = Settings.class.getResourceAsStream("view/config.xml");
+            InputStream fis = Settings.class.getResourceAsStream("/config.xml");
             properties.loadFromXML(fis);
             fis.close();
         } catch (IOException e) {
